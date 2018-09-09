@@ -1,0 +1,41 @@
+<br><br>
+
+<div class="jumbotron" >
+  <h3>Product List</h3> 
+  <div> Search Product: 
+    <input type="text" (keyup)="onKey($event)" id="searchName" name="SearchName" placeholder="Product Name"/>
+  </div>
+<table class="table table-responsive table-striped table-bordered " *ngIf="productView">
+<thead class="thead-inverse">
+<tr>
+<td>Id</td>
+<td>Name</td>
+<td>Description</td>
+<td>Is Active</td>
+<td>Start Date</td>
+<td>End Date</td>
+<td>Image URL</td>
+<td>Base Price</td>
+<td>Take Action At Product</td>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let product of productView">
+    <td>{{product.id}}</td>
+    <td>{{product.productname}}</td>
+    <td>{{product.description}}</td>
+    <td>{{product.isactive}}</td>
+    <td>{{product.startdates}}</td>
+    <td>{{product.enddates}}</td>
+    <td>{{product.imageurl}}</td>
+    <td>{{product.baseprice}}</td>
+    <td>
+        <div class="btn-group">
+          <button type="button" class="btn btn-primary" (click)="updateProduct()">Update</button>
+          <button type="button" class="btn btn-danger" (click)="deleteProduct()">Delete</button>          
+        </div>
+        </td>   
+    </tr>
+  </tbody>
+  </table>
+  </div>

@@ -18,6 +18,7 @@ import { NewServiceComponent } from './new-service/new-service.component';
 import { GetAllServiceComponent } from './get-all-service/get-all-service.component';
 import { OtpVerificationComponent } from './otp-verification/otp-verification.component';
 import { AddProductComponent } from './add-product/add-product.component';
+import { ViewProductComponent } from './view-product/view-product.component';
 
 const appRoutes: Routes = [
   {
@@ -43,6 +44,10 @@ const appRoutes: Routes = [
   {
     path:'newproduct',
     component:AddProductComponent
+  },
+  {
+    path: 'viewProduct',
+    component: ViewProductComponent
   }
 ]
 
@@ -55,7 +60,8 @@ const appRoutes: Routes = [
     NewServiceComponent,
     GetAllServiceComponent,
     OtpVerificationComponent,
-    AddProductComponent
+    AddProductComponent,
+    ViewProductComponent
   ],
   imports: [
     BrowserModule,
