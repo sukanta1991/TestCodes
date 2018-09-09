@@ -1,0 +1,11 @@
+/*Custom styles*/
+
+.login-icon{
+	border: 1px solid;
+  text-align: center;
+  padding-top: 4px;
+}
+
+.d-width-125x{
+	width: 125%;
+}

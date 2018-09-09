@@ -1,0 +1,65 @@
+
+<br><br>
+<div class="jumbotron">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6 offset-md-3">
+              <h3>Add Service</h3>
+              <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+                  <div class="form-group">
+                      <label for="servicename">Service Name</label>
+                      <input type="text" class="form-control" name="servicename" [(ngModel)]="model.servicename" #servicename="ngModel" [ngClass]="{ 'is-invalid': f.submitted && servicename.invalid }" required />
+                      <div *ngIf="f.submitted && servicename.invalid" class="invalid-feedback">
+                          <div *ngIf="servicename.errors.required">Service Name is required</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="description">Service Description</label>
+                      <input type="text" class="form-control" name="description" [(ngModel)]="model.description" #description="ngModel" [ngClass]="{ 'is-invalid': f.submitted && description.invalid }" required />
+                      <div *ngIf="f.submitted && description.invalid" class="invalid-feedback">
+                          <div *ngIf="description.errors.required">Description is required</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="servicestartdate">Service Start Date</label>
+                      <input type="date" class="form-control" name="servicestartdate" [(ngModel)]="model.servicestartdate" #servicestartdate="ngModel" [ngClass]="{ 'is-invalid': f.submitted && servicestartdate.invalid }" required number />
+                      <div *ngIf="f.submitted && servicestartdate.invalid" class="invalid-feedback">
+                          <div *ngIf="servicestartdate.errors.required">Service Start Date is required</div>
+                          <div *ngIf="servicestartdate.errors.number">Service Start Date should be Number</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="serviceenddate">Service End Date</label>
+                    <input type="date" class="form-control" name="serviceenddate" [(ngModel)]="model.serviceenddate" #serviceenddate="ngModel" [ngClass]="{ 'is-invalid': f.submitted && serviceenddate.invalid }" required number />
+                    <div *ngIf="f.submitted && serviceenddate.invalid" class="invalid-feedback">
+                        <div *ngIf="serviceenddate.errors.required">Service End Date is required</div>
+                        <div *ngIf="serviceenddate.errors.number">Service End Date should be Number</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label for="serviceimageurl">Service Image Url</label>
+                  <input type="text" class="form-control" name="serviceimageurl" [(ngModel)]="model.serviceimageurl" #serviceimageurl="ngModel" [ngClass]="{ 'is-invalid': f.submitted && serviceimageurl.invalid }" />
+                  <div *ngIf="f.submitted && serviceimageurl.invalid" class="invalid-feedback">
+                      <div *ngIf="serviceimageurl.errors.required">Service Image Url is required</div>
+                      
+                  </div>
+              </div>
+
+                <div class="form-group">
+                  <label for="serviceactiveflag">Service IS ACTIVE</label>
+                  <input type="checkbox" class="form-control" name="serviceactiveflag" 
+                  [(ngModel)]="model.serviceactiveflag" #serviceactiveflag="ngModel"  />                 
+              </div>
+                  <div class="form-group">
+                      <button class="btn btn-primary" [disabled]="!f.form.valid">Submit</button>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <button class="btn btn-primary" (click)="goBack()">Cancel</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+  

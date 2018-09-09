@@ -1,0 +1,443 @@
+<div class="g-pt-150">
+  <section class="container">
+    <div class="g-mb-40">
+      <h2 class="h3 u-heading-v3__title">Vendor Registeration</h2>
+    </div>
+
+    <!-- Static Process -->
+    <div class="row">
+      <div class="offset-lg-2 col-sm-6 col-lg-2 g-mb-60">
+        <!-- Static Process -->
+        <div class="text-center">
+          <i class="u-dot-line-v1-2 g-brd-transparent--before g-brd-gray-light-v2--after g-mb-20">
+            <span class="u-dot-line-v1__inner g-bg-primary--before g-brd-gray-light-v2" [ngClass]="(isVendorActive || isVendorCompleted) ? 'g-bg-primary' : 'g-bg-white'">
+            </span>
+          </i>
+          <h3 class="h5 g-font-weight-600 g-mb-10">Vendor Create</h3>
+        </div>
+        <!-- End Static Process -->
+      </div>
+
+      <div class="col-sm-6 col-lg-2 g-mb-60">
+        <!-- Static Process -->
+        <div class="text-center">
+          <i class="u-dot-line-v1-2 g-brd-gray-light-v2--before g-brd-gray-light-v2--after g-mb-20">
+            <span class="u-dot-line-v1__inner g-bg-primary--before g-brd-gray-light-v2" [ngClass]="(isAddressActive || isAddressCompleted) ? 'g-bg-primary' : 'g-bg-white'"></span>
+          </i>
+          <h3 class="h5 g-font-weight-600 g-mb-10">Vendor Address</h3>
+        </div>
+        <!-- End Static Process -->
+      </div>
+  
+  
+    </div>
+    <!-- End Static Process -->
+
+    <!-- Vendor form -->
+    <div *ngIf="isVendorActive">
+      <form class="g-pa-30 g-mb-30" [formGroup]="vendorForm">
+        <div class="row">
+          <div class="offset-md-2 col-md-4">
+            <div class="form-group g-mb-20">
+              <label class="g-mb-10" for="firstName">
+                <span *ngIf="!vendorFormErrors.firstName" [ngClass]="{'text-success': !vendorForm.controls.firstName.pristine}">
+                  Vendor first name
+                </span>
+                <span *ngIf="vendorFormErrors.firstName" class="text-danger">{{vendorFormErrors.firstName}}</span>
+              </label>
+              <div class="input-group g-brd-primary--focus">
+                <div class="input-group-addon align-items-center g-bg-white g-color-gray-light-v1 rounded-0 login-icon">
+                  <i class="fa fa-user-o"></i>
+                </div>
+                <input class="form-control form-control-md rounded-0" type="text" id="firstName" formControlName="firstName">
+              </div>
+            </div>
+
+            <div class="form-group g-mb-20">
+              <label class="g-mb-10" for="companyName">
+                <span *ngIf="!vendorFormErrors.companyName" [ngClass]="{'text-success': !vendorForm.controls.companyName.pristine}">
+                  Company Name
+                </span>
+                <span *ngIf="vendorFormErrors.companyName" class="text-danger">{{vendorFormErrors.companyName}}</span>
+              </label>
+              <div class="input-group g-brd-primary--focus">
+                <div class="input-group-addon align-items-center g-bg-white g-color-gray-light-v1 rounded-0 login-icon">
+                  <i class="fa fa-building-o"></i>
+                </div>
+                <input class="form-control form-control-md rounded-0" type="text" id="companyName" formControlName="companyName">
+              </div>
+            </div>
+
+            <div class="form-group g-mb-20">
+              <label class="g-mb-10" for="email">
+                <span *ngIf="!vendorFormErrors.email" [ngClass]="{'text-success': !vendorForm.controls.companyName.pristine}">
+                  Email ID
+                </span>
+                <span *ngIf="vendorFormErrors.email" class="text-danger">{{vendorFormErrors.email}}</span>
+              </label>
+              <div class="input-group g-brd-primary--focus">
+                <div class="input-group-addon align-items-center g-bg-white g-color-gray-light-v1 rounded-0 login-icon">
+                  <i class="fa fa-envelope-o"></i>
+                </div>
+                <input class="form-control form-control-md rounded-0" type="text" id="email" formControlName="email">
+              </div>
+            </div>
+
+            <div class="form-group g-mb-20">
+              <label class="g-mb-10" for="operationalStartTime">
+                <span *ngIf="!vendorFormErrors.operationalStartTime" [ngClass]="{'text-success': !vendorForm.controls.companyName.pristine}">
+                  Start Time
+                </span>
+                <span *ngIf="vendorFormErrors.operationalStartTime" class="text-danger">{{vendorFormErrors.operationalStartTime}}</span>
+              </label>
+              <div class="input-group g-brd-primary--focus">
+                <div class="input-group-addon align-items-center g-bg-white g-color-gray-light-v1 rounded-0 login-icon">
+                  <i class="fa fa-clock-o"></i>
+                </div>
+                <input class="form-control form-control-md rounded-0"  id="operationalStartTime" formControlName="operationalStartTime" [ngxTimepicker]="fullTime" [format]="24">
+                <ngx-material-timepicker #fullTime></ngx-material-timepicker>
+              </div>
+            </div>
+         
+          </div>
+
+          <div class="offset-md-1 col-md-4">
+            <div class="form-group g-mb-20">
+              <label class="g-mb-10" for="lastName">
+                <span *ngIf="!vendorFormErrors.lastName" [ngClass]="{'text-success': !vendorForm.controls.lastName.pristine}">
+                  Vendor last name
+                </span>
+                <span *ngIf="vendorFormErrors.lastName" class="text-danger">{{vendorFormErrors.lastName}}</span>
+              </label>
+              <div class="input-group g-brd-primary--focus">
+                <div class="input-group-addon align-items-center g-bg-white g-color-gray-light-v1 rounded-0 login-icon">
+                  <i class="fa fa-user-o"></i>
+                </div>
+                <input class="form-control form-control-md rounded-0" type="text" id="lastName" formControlName="lastName">
+              </div>
+            </div>
+
+            <div class="form-group g-mb-20">
+              <label class="g-mb-10" for="website">
+                <span *ngIf="!vendorFormErrors.website" [ngClass]="{'text-success': !vendorForm.controls.website.pristine}">
+                  Website
+                </span>
+                <span *ngIf="vendorFormErrors.website" class="text-danger">{{vendorFormErrors.website}}</span>
+              </label>
+              <div class="input-group g-brd-primary--focus">
+                <div class="input-group-addon align-items-center g-bg-white g-color-gray-light-v1 rounded-0 login-icon">
+                  <i class="fa fa-globe"></i>
+                </div>
+                <input class="form-control form-control-md rounded-0" type="text" id="website" formControlName="website">
+              </div>
+            </div>
+
+            <div class="form-group g-mb-20">
+              <label class="g-mb-10" for="contactNumber">
+                <span *ngIf="!vendorFormErrors.contactNumber" [ngClass]="{'text-success': !vendorForm.controls.contactNumber.pristine}">
+                  Contact number
+                </span>
+                <span *ngIf="vendorFormErrors.contactNumber" class="text-danger">{{vendorFormErrors.contactNumber}}</span>
+              </label>
+              <div class="input-group g-brd-primary--focus">
+                <div class="input-group-addon align-items-center g-bg-white g-color-gray-light-v1 rounded-0 login-icon">
+                  <i class="fa fa-mobile"></i>
+                </div>
+                <input class="form-control form-control-md rounded-0" type="text" id="contactNumber" formControlName="contactNumber">
+              </div>
+            </div>
+
+            <div class="form-group g-mb-20">
+              <label class="g-mb-10" for="operationalEndTime">
+                <span *ngIf="!vendorFormErrors.operationalEndTime" [ngClass]="{'text-success': !vendorForm.controls.companyName.pristine}">
+                  End Time
+                </span>
+                <span *ngIf="vendorFormErrors.operationalEndTime" class="text-danger">{{vendorFormErrors.operationalEndTime}}</span>
+              </label>
+              <div class="input-group g-brd-primary--focus">
+                <div class="input-group-addon align-items-center g-bg-white g-color-gray-light-v1 rounded-0 login-icon">
+                  <i class="fa fa-clock-o"></i>
+                </div>
+                <input class="form-control form-control-md rounded-0"  id="operationalEndTime" formControlName="operationalEndTime" [ngxTimepicker]="fullTime1" [format]="24">
+                <ngx-material-timepicker #fullTime1></ngx-material-timepicker>
+              </div>
+            </div>
+
+
+
+            <div class="text-right">
+              <button class="btn btn-md u-btn-outline-cyan g-mr-10 g-mb-15" type="submit" (click)="submitVendorForm()">Next</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Address form -->
+    <div *ngIf="isAddressActive">
+      <div class="row">
+        <div class="offset-md-1 col-md-2">
+          <dt>Search Address:</dt>
+        </div>
+        <div class="col-md-4">
+          <input class="d-width-125x" ngx-google-places-autocomplete #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"
+          />
+        </div>
+      </div>
+
+      <div class="card g-brd-darkblue rounded-0 g-mt-50">
+        <h3 class="card-header h5 text-white g-bg-darkblue g-brd-transparent rounded-0">
+          <i class="fa fa-tasks g-font-size-default g-mr-5"></i>
+          Address form
+        </h3>
+
+        <div class="card-block">
+          <form class="g-pa-30 g-mb-30" [formGroup]="addressForm">
+            <div class="row">
+              <div class="offset-md-2 col-md-4">
+                <div class="form-group g-mb-20">
+                  <label class="g-mb-10" for="addresstype">
+                    <span *ngIf="!addressFormErrors.addresstype" [ngClass]="{'text-success': !addressForm.controls.addresstype.pristine}">
+                      Address Type
+                    </span>
+                    <span *ngIf="addressFormErrors.addresstype" class="text-danger">{{addressFormErrors.addresstype}}</span>
+                  </label>
+
+                  <select class="custom-select mr-sm-3 mb-3 mb-lg-0" id="addresstype" formControlName="addresstype">
+                    <option value="DELIVERY" selected="">Delivary</option>
+                    <option value="HOME">Home</option>
+                  </select>
+                </div>
+
+                <div class="form-group g-mb-20">
+                  <label class="g-mb-10" for="administrativearealevel1">
+                    <span *ngIf="!addressFormErrors.administrativearealevel1" [ngClass]="{'text-success': !addressForm.controls.administrativearealevel1.pristine}">
+                      Administrative Area Level 1
+                    </span>
+                    <span *ngIf="addressFormErrors.administrativearealevel1" class="text-danger">{{addressFormErrors.administrativearealevel1}}</span>
+                  </label>
+                  <input class="form-control form-control-md rounded-0" type="text" id="administrativearealevel1" formControlName="administrativearealevel1">
+                </div>
+
+                <div class="form-group g-mb-20">
+                  <label class="g-mb-10" for="administrativearealevel2">
+                    <span *ngIf="!addressFormErrors.administrativearealevel2" [ngClass]="{'text-success': !addressForm.controls.administrativearealevel2.pristine}">
+                      Administrative Area Level 2
+                    </span>
+                    <span *ngIf="addressFormErrors.administrativearealevel2" class="text-danger">{{addressFormErrors.administrativearealevel2}}</span>
+                  </label>
+                  <input class="form-control form-control-md rounded-0" type="text" id="administrativearealevel2" formControlName="administrativearealevel2">
+                </div>
+
+                <div class="form-group g-mb-20">
+                  <label class="g-mb-10" for="country">
+                    <span *ngIf="!addressFormErrors.country" [ngClass]="{'text-success': !addressForm.controls.country.pristine}">
+                      Country
+                    </span>
+                    <span *ngIf="addressFormErrors.country" class="text-danger">{{addressFormErrors.country}}</span>
+                  </label>
+                  <input class="form-control form-control-md rounded-0" type="text" id="country" formControlName="country">
+                </div>
+
+                <div class="form-group g-mb-20">
+                  <label class="g-mb-10" for="lift">
+                    <span *ngIf="!addressFormErrors.lift" [ngClass]="{'text-success': !addressForm.controls.lift.pristine}">
+                      Lift
+                    </span>
+                    <span *ngIf="addressFormErrors.lift" class="text-danger">{{addressFormErrors.lift}}</span>
+                  </label>
+
+                  <select class="custom-select mr-sm-3 mb-3 mb-lg-0" id="lift" formControlName="lift">
+                    <option value="true" selected="">Yes</option>
+                    <option value="false">No</option>
+                  </select>
+                </div>
+                <div class="form-group g-mb-20">
+                  <label class="g-mb-10" for="lat">
+                    <span *ngIf="!addressFormErrors.lat" [ngClass]="{'text-success': !addressForm.controls.sublocalitylevel2.pristine}">
+                     Latitude
+                    </span>
+                    <span *ngIf="addressFormErrors.lat" class="text-danger">{{addressFormErrors.lat}}</span>
+                  </label>
+                  <input class="form-control form-control-md rounded-0" type="text" id="lat" formControlName="lat">
+                </div>
+
+                <div class="form-group g-mb-20">
+                  <label class="g-mb-10" for="lng">
+                    <span *ngIf="!addressFormErrors.lng" [ngClass]="{'text-success': !addressForm.controls.lng.pristine}">
+                     Longitude
+                    </span>
+                    <span *ngIf="addressFormErrors.lng" class="text-danger">{{addressFormErrors.lng}}</span>
+                  </label>
+                  <input class="form-control form-control-md rounded-0" type="text" id="lng" formControlName="lng">
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-group g-mb-20">
+                  <label class="g-mb-10" for="fullAddress">
+                    <span *ngIf="!addressFormErrors.fullAddress" [ngClass]="{'text-success': !addressForm.controls.fullAddress.pristine}">
+                      Full Address
+                    </span>
+                    <span *ngIf="addressFormErrors.fullAddress" class="text-danger">{{addressFormErrors.fullAddress}}</span>
+                  </label>
+                  <input class="form-control form-control-md rounded-0" type="text" id="fullAddress" formControlName="fullAddress">
+                </div>
+
+                <div class="form-group g-mb-20">
+                  <label class="g-mb-10" for="locality">
+                    <span *ngIf="!addressFormErrors.locality" [ngClass]="{'text-success': !addressForm.controls.locality.pristine}">
+                      Locality
+                    </span>
+                    <span *ngIf="addressFormErrors.locality" class="text-danger">{{addressFormErrors.locality}}</span>
+                  </label>
+                  <input class="form-control form-control-md rounded-0" type="text" id="locality" formControlName="locality">
+                </div>
+
+                <div class="form-group g-mb-20">
+                  <label class="g-mb-10" for="pincode">
+                    <span *ngIf="!addressFormErrors.pincode" [ngClass]="{'text-success': !addressForm.controls.pincode.pristine}">
+                      Pincode
+                    </span>
+                    <span *ngIf="addressFormErrors.pincode" class="text-danger">{{addressFormErrors.pincode}}</span>
+                  </label>
+                  <input class="form-control form-control-md rounded-0" type="text" id="pincode" formControlName="pincode">
+                </div>
+
+                <div class="form-group g-mb-20">
+                  <label class="g-mb-10" for="primise">
+                    <span *ngIf="!addressFormErrors.primise" [ngClass]="{'text-success': !addressForm.controls.primise.pristine}">
+                      Primise
+                    </span>
+                    <span *ngIf="addressFormErrors.primise" class="text-danger">{{addressFormErrors.primise}}</span>
+                  </label>
+                  <input class="form-control form-control-md rounded-0" type="text" id="primise" formControlName="primise">
+                </div>
+
+                <div class="form-group g-mb-20">
+                  <label class="g-mb-10" for="sublocalitylevel1">
+                    <span *ngIf="!addressFormErrors.sublocalitylevel1" [ngClass]="{'text-success': !addressForm.controls.sublocalitylevel1.pristine}">
+                      Sub Locality Level 1
+                    </span>
+                    <span *ngIf="addressFormErrors.sublocalitylevel1" class="text-danger">{{addressFormErrors.sublocalitylevel1}}</span>
+                  </label>
+                  <input class="form-control form-control-md rounded-0" type="text" id="sublocalitylevel1" formControlName="sublocalitylevel1">
+                </div>
+
+                <div class="form-group g-mb-20">
+                  <label class="g-mb-10" for="sublocalitylevel2">
+                    <span *ngIf="!addressFormErrors.sublocalitylevel2" [ngClass]="{'text-success': !addressForm.controls.sublocalitylevel2.pristine}">
+                      Sub Locality Level 2
+                    </span>
+                    <span *ngIf="addressFormErrors.sublocalitylevel2" class="text-danger">{{addressFormErrors.sublocalitylevel2}}</span>
+                  </label>
+                  <input class="form-control form-control-md rounded-0" type="text" id="sublocalitylevel2" formControlName="sublocalitylevel2">
+                </div>
+
+              </div>
+            </div>
+
+            <div class="row g-mt-20">
+              <div class="col-md-6">
+                <button class="btn btn-md u-btn-outline-cyan g-mx-20 g-mb-15" type="button" (click)="addAddress()">
+                  <i class="fa fa-plus g-mr-10"></i> Add more address</button>
+                <p class="text-info">* Current address will be added to the address queue.</p>
+              </div>
+              <div class="col-md-6 text-right">
+                <button class="btn btn-md u-btn-outline-brown g-mx-20 g-mb-15" type="button" (click)="backFromAddress()">Back</button>
+                <button class="btn btn-md u-btn-outline-darkred g-mx-20 g-mb-15" type="button" (click)="resetAddressForm()">Reset</button>
+                <button class="btn btn-md u-btn-outline-primary g-mx-20 g-mb-15" type="button" (click)="submitAddressForm()">Save</button>
+              </div>
+            </div>
+
+            <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+              <h4 class="h5">
+                <i class="fa fa-minus-circle"></i>
+                {{errorMessage}}
+              </h4>
+              {{errorMessageBody}}
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Address queue -->
+      <div *ngIf="addressSet.length > 0" class="g-mt-30">
+        <h2 class="h3">Address queue</h2>
+        <div *ngFor="let address of addressSet">
+          <div class="alert alert-success" role="alert">
+            <div class="row">
+              <div class="col-sm-6">
+                <span class="row">
+                  <dt class="col-md-6">Address Type: </dt>
+                  <dd class="col-md-6">{{address.addresstype}}</dd>
+                </span>
+                <span class="row">
+                  <dt class="col-md-6">Administrative Area Level 1: </dt>
+                  <dd class="col-md-6">{{address.administrativearealevel1}}</dd>
+                </span>
+                <span class="row">
+                  <dt class="col-md-6">Administrative Area Level 2: </dt>
+                  <dd class="col-md-6">{{address.administrativearealevel2}}</dd>
+                </span>
+                <span class="row">
+                  <dt class="col-md-6">Country: </dt>
+                  <dd class="col-md-6">{{address.country}}</dd>
+                </span>
+                <span class="row">
+                  <dt class="col-md-6">Lift: </dt>
+                  <dd class="col-md-6">{{address.lift}}</dd>
+                </span>
+                <span class="row">
+                  <dt class="col-md-6">Latitude : </dt>
+                  <dd class="col-md-6">{{address.lat}}</dd>
+                </span>
+
+                <span class="row">
+                  <dt class="col-md-6">Longitude: </dt>
+                  <dd class="col-md-6">{{address.lng}}</dd>
+                </span>
+              </div>
+              <div class="col-sm-6">
+                <span class="row">
+                  <dt class="col-md-6">Full Address: </dt>
+                  <dd class="col-md-6">{{address.fullAddress}}</dd>
+                </span>
+                <span class="row">
+                  <dt class="col-md-6">Locality: </dt>
+                  <dd class="col-md-6">{{address.locality}}</dd>
+                </span>
+                <span class="row">
+                  <dt class="col-md-6">Pincode: </dt>
+                  <dd class="col-md-6">{{address.pincode}}</dd>
+                </span>
+                <span class="row">
+                  <dt class="col-md-6">Primise: </dt>
+                  <dd class="col-md-6">{{address.primise}}</dd>
+                </span>
+                <span class="row">
+                  <dt class="col-md-6">Sub Locality Level 1: </dt>
+                  <dd class="col-md-6">{{address.sublocalitylevel1}}</dd>
+                </span>
+                <span class="row">
+                  <dt class="col-md-6">Sub Locality Level 2: </dt>
+                  <dd class="col-md-6">{{address.sublocalitylevel2}}</dd>
+                </span>
+
+               
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 text-right">
+                <button class="btn btn-md alert-success g-color-red g-mr-10 g-mb-15" type="button" (click)="removeAddress(address)">
+                  <i class="fa fa-trash"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</div>

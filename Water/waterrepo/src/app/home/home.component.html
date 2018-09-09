@@ -1,0 +1,59 @@
+<div class="g-pt-50">  
+  <section class="g-min-height-100vh g-flex-centered g-bg-lightblue-radialgradient-circle">
+    <div class="container g-py-100">
+      <div class="row justify-content-center">
+        <div class="col-sm-8 col-lg-5">
+          <div class="u-shadow-v24 g-bg-white rounded g-py-40 g-px-30">
+            <header class="text-center mb-4">
+              <h2 class="h2 g-color-black g-font-weight-600">Admin Login</h2>
+            </header>
+
+            <!-- Form -->
+            <form class="g-brd-around g-brd-gray-light-v4 g-pa-30 g-mb-30" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+              <div class="form-group g-mb-20">
+                <label class="g-mb-10" for="username">
+                  <span *ngIf="!formErrors.username" [ngClass]="{'text-success': !loginForm.controls.username.pristine}">
+                    Username
+                  </span>
+                  <span *ngIf="formErrors.username" class="text-danger">{{formErrors.username}}</span>
+                </label>
+                <div class="input-group g-brd-primary--focus">
+                  <div class="input-group-addon align-items-center g-bg-white g-color-gray-light-v1 rounded-0 login-icon">
+                    <fa name="user"></fa>
+                  </div>
+                  <input class="form-control form-control-md rounded-0" type="text" id="username" formControlName="username">
+                </div>
+              </div>
+
+              <div class="form-group g-mb-20">
+                <label class="g-mb-10" for="password">
+                  <span *ngIf="!formErrors.password" [ngClass]="{'text-success': !loginForm.controls.password.pristine}">Password
+                  </span>
+                  <span *ngIf="formErrors.password" class="text-danger">{{formErrors.password}}</span>
+                </label>
+                <div class="input-group g-brd-primary--focus">
+                  <div class="input-group-addon align-items-center g-bg-white g-color-gray-light-v1 rounded-0 login-icon">
+                    <fa name="lock"></fa>
+                  </div>
+                  <input class="form-control form-control-md rounded-0" type="password" id="password" formControlName="password">
+                </div>
+              </div>
+
+              <div class="offset-8 col-4 align-self-center text-right">
+                <button class="btn btn-md u-btn-primary rounded g-py-13 g-px-25" type="submit" (click)="onSubmit()">Login</button>
+              </div>
+            </form>
+            <p *ngIf="errorMessage" class="text-danger">
+              {{errorMessage}}
+            </p>
+            <p *ngIf="successMessage" class="text-success">
+              {{successMessage}}
+            </p>
+            <!-- End Form -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,60 @@
+<br><br>
+
+
+<div class="jumbotron" >
+    <h3>Service List</h3> 
+<table class="table table-responsive table-striped table-bordered " *ngIf="services">
+<thead class="thead-inverse">
+  <tr>
+  <td>Id</td>
+  <td>Name</td>
+  <td>Image Url</td>
+  <td>Description</td>
+  <td>Start Date</td>
+  <td>End Date</td>
+  <td>Service Flag</td>
+  <td><tr><td>ProductId</td>
+  <td>ProductName</td>
+  <td>ProductDescription</td>
+  <td>IsActive</td>
+  <td>StartDate</td>
+  <td>EndDate</td>
+  <td>ImageUrl</td>
+  <td>baseprice</td>
+  </tr></td>
+  <td>Take Action At Service Level</td>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let service of services">
+    <td>{{service.id}}</td>
+    <td>{{service.servicename}}</td>
+    <td>{{service.serviceimageurl}}</td>
+    <td>{{service.description}}</td>
+    <td>{{service.servicestartdate}}</td>
+    <td>{{service.serviceenddate}}</td>
+    <td>{{service.serviceactiveflag}}</td>
+    <td><tr *ngFor="let product of service.product">
+      <td>{{product.id}}</td>
+      <td>{{product.productname}}</td>
+      <td>{{product.description}}</td>
+      <td>{{product.isactive}}</td>
+      <td>{{product.startdate}}</td>
+      <td>{{product.enddate}}</td>
+      <td>NULL</td>
+      <td>{{product.baseprice}}</td>
+    </tr></td>
+    <td>
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary" (click)="updateService()">Update</button>
+        <button type="button" class="btn btn-danger" (click)="deleteService()">Delete</button>          
+      </div>
+      </td>
+ 
+  </tr>
+
+
+
+</tbody>
+</table>
+</div>
