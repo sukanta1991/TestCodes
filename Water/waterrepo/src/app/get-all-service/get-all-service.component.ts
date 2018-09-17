@@ -19,7 +19,8 @@ export class GetAllServiceComponent implements OnInit {
        service:newservice;
        products:product[];
        product:product;
-       
+       sId: number;
+       sModel: newservice;
        errMsg:string;
        private route$: any;
 

@@ -28,12 +28,24 @@
 <tbody>
   <tr *ngFor="let service of services">
     <td>{{service.id}}</td>
-    <td>{{service.servicename}}</td>
-    <td>{{service.serviceimageurl}}</td>
-    <td>{{service.description}}</td>
-    <td>{{service.servicestartdate}}</td>
-    <td>{{service.serviceenddate}}</td>
-    <td>{{service.serviceactiveflag}}</td>
+    <td> <span *ngIf="service.id!=sId">{{service.servicename}}</span>
+      <input type="text" *ngIf="service.id==sId" [(ngModel)] ="sModel.servicename"/>
+    </td>
+    <td><span *ngIf="service.id!=sId">{{service.serviceimageurl}}</span>
+        <input type="text" *ngIf="service.id==sId" [(ngModel)] ="sModel.serviceimageurl"/>
+    </td>
+    <td><span *ngIf="service.id!=sId">{{service.description}}</span>
+        <input type="text" *ngIf="service.id==sId" [(ngModel)] ="sModel.description"/>
+    </td>
+    <td><span *ngIf="service.id!=sId">{{service.servicestartdate}}</span>
+        <input type="text" *ngIf="service.id==sId" [(ngModel)] ="sModel.servicestartdate"/>
+    </td>
+    <td><span *ngIf="service.id!=sId">{{service.serviceenddate}}</span>
+        <input type="text" *ngIf="service.id==sId" [(ngModel)] ="sModel.serviceenddate"/>
+    </td>
+    <td><span *ngIf="service.id!=sId">{{service.serviceactiveflag}}</span>
+        <input type="text" *ngIf="service.id==sId" [(ngModel)] ="sModel.serviceactiveflag"/>
+    </td>
     <td><tr *ngFor="let product of service.product">
       <td>{{product.id}}</td>
       <td>{{product.productname}}</td>
@@ -46,15 +58,13 @@
     </tr></td>
     <td>
       <div class="btn-group">
-        <button type="button" class="btn btn-primary" (click)="updateService()">Update</button>
-        <button type="button" class="btn btn-danger" (click)="deleteService()">Delete</button>          
+          <button type="button" *ngIf="service.id!=sId" class="btn btn-success" (click)="sId=service.id; sModel=service">Edit</button>   
+        <button type="button" *ngIf="service.id==sId" class="btn btn-primary" (click)="updateService()">Update</button>
+        <button type="button" *ngIf="service.id!=sId" class="btn btn-danger" (click)="deleteService()">Delete</button>   
+        <button type="button" *ngIf="service.id==sId" class="btn btn-danger" (click)="sId=-1; sModel= NULL ">Cancel</button>   
       </div>
       </td>
- 
   </tr>
-
-
-
 </tbody>
 </table>
 </div>
