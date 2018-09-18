@@ -60,7 +60,7 @@
       <div class="btn-group">
           <button type="button" *ngIf="service.id!=sId" class="btn btn-success" (click)="sId=service.id; sModel=service">Edit</button>   
         <button type="button" *ngIf="service.id==sId" class="btn btn-primary" (click)="updateService()">Update</button>
-        <button type="button" *ngIf="service.id!=sId" class="btn btn-danger" (click)="deleteService()">Delete</button>   
+        <button type="button" *ngIf="service.id!=sId" class="btn btn-danger" (click)="deleteService(service.id, service.servicename)">Delete</button>   
         <button type="button" *ngIf="service.id==sId" class="btn btn-danger" (click)="sId=-1; sModel= NULL ">Cancel</button>   
       </div>
       </td>

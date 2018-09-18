@@ -36,17 +36,17 @@ export class getservice
     deleteService(id: number): Observable<any> {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        return this.http.delete(this.baseApiUri + id, options)
+        return this.http.delete(this.baseApiUri+ '/delete?serviceId=' + id, this.getHeaders())
             .pipe(map((response: Response) => response.json()),
             catchError(this.handleError));
     }
 
-    updateService(id: number, model: newservice): Observable<any> {
+    updateService( model: newservice): Observable<any> {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
         let body = JSON.stringify(model);
-        return this.http.put(this.baseApiUri + id, body, options)
-            .pipe(map((response: Response) => response.status == 204 ? 1 : 0),
+        return this.http.put(this.baseApiUri + '/update', body, options)
+            .pipe(map((response: Response) => response.status == 200 ? 1 : response.status),
             catchError(this.handleError));
     }
 

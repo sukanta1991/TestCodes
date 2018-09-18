@@ -39,4 +39,20 @@ ngOnDestroy() {
     })
 
 }
+
+updateService(){
+  this.getservice.updateService(this.sModel).subscribe(data=>{
+    console.log(data);
+    this.sId = -1;
+    this.getServiceList();
+  })
+}
+
+  deleteService(id:number, name:string){
+    if(confirm("Do you want to delete service " + name))
+    this.getservice.deleteService(id).subscribe(data =>{
+      console.log(data);
+      this.getServiceList();
+    })
+  }
 }
