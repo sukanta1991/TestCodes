@@ -1,0 +1,86 @@
+
+<br><br>
+<div class="jumbotron">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6 offset-md-3">
+              <h3>𝕄𝔸ℙ ℙℝ𝕆𝔻𝕌ℂ𝕋 𝕋𝕆 𝕍𝔼ℕ𝔻𝕆ℝ</h3>
+              <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+                  <div class="form-group">
+                      <label for="optionvalues"> Choose The Vendor:</label><br>
+                    <select (change)="myFunction1($event.target.value)">
+                      <option value="0">----Select----</option>
+                  <option   *ngFor="let vendor of vendors" value={{vendor.id}}  aria-required="true" >{{vendor.firstName}}
+
+                  </option>
+                </select>  
+                </div>
+                <div class="form-group">
+                    <label for="optionvalues"> Choose The Product:</label><br>
+                  <select (change)="myFunction2($event.target.value)">
+                    <option value="0">----Select----</option>
+                <option   *ngFor="let product of productView" value={{product.id}}  >{{product.productname}}
+
+                </option>
+              </select>  
+              </div>
+                  <div class="form-group">
+                      <label for="startDate"> Start Date</label>
+                      <input type="date" class="form-control" name="startDate" [(ngModel)]="model.startDate" #startDate="ngModel" [ngClass]="{ 'is-invalid': f.submitted && startDate.invalid }" required  />
+                      <div *ngIf="f.submitted && startDate.invalid" class="invalid-feedback">
+                          <div *ngIf="startDate.errors.required"> Start Date is required</div>
+                       
+                      </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="endDate"> End Date</label>
+                    <input type="date" class="form-control" name="endDate" [(ngModel)]="model.endDate" #endDate="ngModel" [ngClass]="{ 'is-invalid': f.submitted && endDate.invalid }" />
+                    <div *ngIf="f.submitted && endDate.invalid" class="invalid-feedback">
+                        <div *ngIf="endDate.errors.required"> End Date is required</div>
+                        
+                    </div>
+                </div>
+             
+
+              <div class="form-group">
+                  <label for="availablestock">Available Stock</label>
+                  <input type="number" class="form-control" name="availablestock" [(ngModel)]="model.availablestock" #availablestock="ngModel" [ngClass]="{ 'is-invalid': f.submitted && availablestock.invalid }" required />
+                  <div *ngIf="f.submitted && availablestock.invalid" class="invalid-feedback">
+                      <div *ngIf="availablestock.errors.required">Available Stock is required</div>
+                     
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label for="listprice">List Price</label>
+                  <input type="number" class="form-control" name="listprice" [(ngModel)]="model.listprice" #listprice="ngModel" [ngClass]="{ 'is-invalid': f.submitted && listprice.invalid }" required />
+                  <div *ngIf="f.submitted && listprice.invalid" class="invalid-feedback">
+                      <div *ngIf="listprice.errors.required">List Price is required</div>
+                     
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label for="qualitysalelimit">Quality Sale Limit</label>
+                  <input type="number" class="form-control" name="qualitysalelimit" [(ngModel)]="model.qualitysalelimit" #qualitysalelimit="ngModel" [ngClass]="{ 'is-invalid': f.submitted && qualitysalelimit.invalid }" required />
+                  <div *ngIf="f.submitted && qualitysalelimit.invalid" class="invalid-feedback">
+                      <div *ngIf="qualitysalelimit.errors.required">Quality Sale Limit is required</div>
+                     
+                  </div>
+              </div>
+
+                <div class="form-group">
+                  <label for="disabled">ACTIVE</label>
+                  <input type="checkbox" class="form-control" name="disabled" 
+                  [(ngModel)]="model.disabled" #disabled="ngModel"  />
+                  
+              </div>
+                  <div class="form-group">
+                      <button class="btn btn-info">MAP</button>
+                  </div>
+              </form>
+            </div>
+      </div>
+  </div>
+</div>
+
+
+  

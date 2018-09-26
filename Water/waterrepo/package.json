@@ -37,6 +37,7 @@
     "jquery": "^3.3.1",
     "ngx-google-places-autocomplete": "^2.0.1",
     "ngx-material-timepicker": "^2.5.4",
+    "ngx-spinner": "^6.1.2",
     "npm": "^6.2.0",
     "path": "^0.12.7",
     "rxjs": "^6.0.0",

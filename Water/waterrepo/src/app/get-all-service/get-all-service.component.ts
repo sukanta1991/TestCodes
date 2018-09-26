@@ -6,6 +6,8 @@ import {  ActivatedRoute, Params} from '@angular/router';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { Http, Response } from '@angular/http';
+import { ok } from 'assert';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-get-all-service',
@@ -14,8 +16,10 @@ import { Http, Response } from '@angular/http';
 })
 export class GetAllServiceComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute,private getservice:getservice,private formBuilder: FormBuilder) { }
+  constructor(private spinner: NgxSpinnerService,private route: ActivatedRoute,
+    private router:Router,private getservice:getservice,private formBuilder: FormBuilder) { }
    services :newservice[]
+   sericesList:newservice[];
        service:newservice;
        products:product[];
        product:product;
@@ -26,7 +30,14 @@ export class GetAllServiceComponent implements OnInit {
 
 
   ngOnInit() {
-this.getServiceList();
+    this.spinner.show();
+ 
+    setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        this.getServiceList();
+        this.spinner.hide();
+    }, 3000);
+
 }
 ngOnDestroy() {
   if (this.route$) this.route$.unsubscribe();
@@ -35,10 +46,15 @@ ngOnDestroy() {
   
   getServiceList(){
     this.getservice.getServiceList().subscribe(data =>{
+      data.map(x=>{
+        x["servicestartdate"] = new Date(x.servicestartdate).toDateString();
+        x["serviceenddate"] = new Date(x.serviceenddate).toDateString();
+      })
       this.services = JSON.parse(JSON.stringify(data));
     })
 
 }
+
 
 updateService(){
   this.getservice.updateService(this.sModel).subscribe(data=>{

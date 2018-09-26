@@ -1,0 +1,52 @@
+<br><br><br>
+<ngx-spinner
+bdColor = "rgba(51, 51, 51, 0.8)"
+size = "medium"
+color = "#fff"
+type = "ball-atom"
+></ngx-spinner>
+
+<div class="jumbotron" >
+  <div class="container">
+  <h3>ℙℝ𝕆𝔻𝕌ℂ𝕋 𝕃𝕀𝕊𝕋</h3> 
+  <div> 𝕊𝔼𝔸ℝℂℍ ℙℝ𝕆𝔻𝕌ℂ𝕋: 
+    <input type="text" (keyup)="onKey($event)" id="searchName" name="SearchName" placeholder="Product Name"/>
+  </div>
+  <br>
+<table class="table table-responsive table-striped table-bordered " *ngIf="productView">
+<thead class="thead-inverse">
+<tr>
+<td>Id</td>
+<td>Name</td>
+<td>Description</td>
+<td>Is Active</td>
+<td>Start Date</td>
+<td>End Date</td>
+<td>Image URL</td>
+<td>Base Price</td>
+<td>Take Action At Product</td>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let product of productView">
+    <td>{{product.id}}</td>
+    <td>{{product.productname}}</td>
+    <td>{{product.description}}</td>
+    <td>{{product.isactive}}</td>
+    <td>{{product.startdates}}</td>
+    <td>{{product.enddates}}</td>
+    <td>{{product.imageurl}}</td>
+    <td>{{product.baseprice}}</td>
+    <td>
+        <div class="btn-group">
+            <button type="button" *ngIf="product.id!=pId" class="btn btn-success" (click)="pId=product.id; pModel=product">Edit</button>   
+            <button type="button" *ngIf="product.id==pId" class="btn btn-primary" (click)="updateProduct()">Update</button>
+            <button type="button" *ngIf="product.id!=pId" class="btn btn-danger" (click)="deleteProduct()(product.id, product.productname)">Delete</button>   
+            <button type="button" *ngIf="product.id==pId" class="btn btn-danger" (click)="pId=-1; sModel= NULL ">Cancel</button>       
+        </div>
+        </td>   
+    </tr>
+  </tbody>
+  </table>
+  </div>
+</div>

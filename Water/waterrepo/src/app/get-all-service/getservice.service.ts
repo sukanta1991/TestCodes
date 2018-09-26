@@ -11,7 +11,7 @@ export class getservice
 {
     constructor(private http:Http) { }
     private baseApiUri= "http://atserve-waterapp.ap-south-1.elasticbeanstalk.com/api/v1/service";
-
+    private baseApiUriDelete="http://atserve-waterapp.ap-south-1.elasticbeanstalk.com/api/v1/service/delete?serviceId=";
 
     getServiceList() :Observable<any> {
         let headers = new Headers({  });
@@ -34,9 +34,9 @@ export class getservice
     }
 
     deleteService(id: number): Observable<any> {
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
-        return this.http.delete(this.baseApiUri+ '/delete?serviceId=' + id, this.getHeaders())
+      
+       // let options = new RequestOptions({ headers: headers });
+        return this.http.delete(this.baseApiUriDelete + id)
             .pipe(map((response: Response) => response.json()),
             catchError(this.handleError));
     }

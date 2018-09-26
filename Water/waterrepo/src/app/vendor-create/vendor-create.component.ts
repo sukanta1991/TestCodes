@@ -145,7 +145,7 @@ export class VendorCreateComponent implements OnInit {
     this.vendor['addressSet'] = this.addressSet;
     this.vendorService.add(this.vendor).subscribe(
       successResponse => {
-        this.router.navigate(['admin/Home']);
+        this.router.navigate(['/admin/Home']);
       },
       errorResponse   => {
         this.errorMessage = errorResponse.statusText;
@@ -230,7 +230,6 @@ export class VendorCreateComponent implements OnInit {
     this.isAddressActive = true;
     this.isVendorCompleted = true;
     this.vendor = this.vendorForm.value
-    console.log('bye');
   }
 
   private buildVendorForm(): void {

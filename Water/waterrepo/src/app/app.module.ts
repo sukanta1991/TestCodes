@@ -8,7 +8,8 @@ import { StorageServiceModule} from 'angular-webstorage-service';
 import { Http } from '@angular/http';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker'
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -16,9 +17,11 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { VendorCreateComponent } from './vendor-create/vendor-create.component';
 import { NewServiceComponent } from './new-service/new-service.component';
 import { GetAllServiceComponent } from './get-all-service/get-all-service.component';
-import { OtpVerificationComponent } from './otp-verification/otp-verification.component';
+
 import { AddProductComponent } from './add-product/add-product.component';
-import { ViewProductComponent } from './view-product/view-product.component';
+import { ViewProductlistComponent } from './view-productlist/view-productlist.component';
+import { ProductToVendorComponent } from './product-to-vendor/product-to-vendor.component';
+
 
 const appRoutes: Routes = [
   {
@@ -47,7 +50,11 @@ const appRoutes: Routes = [
   },
   {
     path: 'viewProduct',
-    component: ViewProductComponent
+    component: ViewProductlistComponent
+  },
+  {
+    path:'productToVendor',
+    component:ProductToVendorComponent
   }
 ]
 
@@ -59,9 +66,10 @@ const appRoutes: Routes = [
     VendorCreateComponent,
     NewServiceComponent,
     GetAllServiceComponent,
-    OtpVerificationComponent,
     AddProductComponent,
-    ViewProductComponent
+    ViewProductlistComponent,
+    ProductToVendorComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -72,6 +80,7 @@ const appRoutes: Routes = [
     GooglePlaceModule,
     StorageServiceModule,
     BrowserAnimationsModule,
+    NgxSpinnerModule,
     NgxMaterialTimepickerModule.forRoot(),
     RouterModule.forRoot(
       appRoutes,

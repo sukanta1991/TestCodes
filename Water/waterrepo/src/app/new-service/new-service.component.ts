@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {getservice} from '../get-all-service/getservice.service';
 import { Router } from '@angular/router';
-import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-new-service',
@@ -15,7 +14,7 @@ export class NewServiceComponent implements OnInit {
   private errorMessage:string;
   private errorMessageBody:string;
 
-  constructor(private _getservice:getservice,private router:Router, private _location: Location ) { }
+  constructor(private _getservice:getservice,private router:Router ) { }
 
   public onserviceactiveflagchecked(value:boolean){
     this.serviceactiveflag = value;
@@ -35,11 +34,9 @@ export class NewServiceComponent implements OnInit {
     );
   }
   
-  ngOnInit() {
-  }
+  
 
-  goBack(){
-    this._location.back();
+  ngOnInit() {
   }
 
 }

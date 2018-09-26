@@ -3,14 +3,14 @@
 <div class="jumbotron">
   <div class="container">
       <div class="row">
-          <div class="col-md-6 offset-md-3">
-              <h3>Add Product</h3>
+          <div class="col-sm-6 offset-md-3">
+              <h3>𝔸𝔻𝔻 ℙℝ𝕆𝔻𝕌ℂ𝕋</h3>
               <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
                   <div class="form-group">
-                      <label for="productname">Product Name</label>
-                      <input type="text" class="form-control" name="productname" [(ngModel)]="model.productname" #productname="ngModel" [ngClass]="{ 'is-invalid': f.submitted && productname.invalid }" required />
-                      <div *ngIf="f.submitted && productname.invalid" class="invalid-feedback">
-                          <div *ngIf="productname.errors.required">Product Name is required</div>
+                      <label for="productName">Product Name</label>
+                      <input type="text" class="form-control" name="productName" [(ngModel)]="model.productName" #productName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && productName.invalid }" required />
+                      <div *ngIf="f.submitted && productName.invalid" class="invalid-feedback">
+                          <div *ngIf="productName.errors.required">Product Name is required</div>
                       </div>
                   </div>
                   <div class="form-group">
@@ -25,58 +25,56 @@
                       <label for="optionvalues"> Choose a Service:</label><br>
                     <select (change)="myFunction($event.target.value)">
                       <option value="0">----Select----</option>
-                  <option   *ngFor="let service of services" value={{service.id}}  >{{service.servicename}}
+                  <option   *ngFor="let service of services" value={{service.id}} aria-required="true" >{{service.servicename}}
 
                   </option>
                 </select>  
                 </div>
                   <div class="form-group">
-                      <label for="startdate">Product Start Date</label>
-                      <input type="date" class="form-control" name="startdate" [(ngModel)]="model.startdate" #startdate="ngModel" [ngClass]="{ 'is-invalid': f.submitted && startdate.invalid }" required  />
-                      <div *ngIf="f.submitted && startdate.invalid" class="invalid-feedback">
-                          <div *ngIf="startdate.errors.required">Product Start Date is required</div>
-                          <div *ngIf="startdate.errors.number">Product Start Date should be date</div>
+                      <label for="startDate">Product Start Date</label>
+                      <input type="date" class="form-control" name="startDate" [(ngModel)]="model.startDate" #startDate="ngModel" [ngClass]="{ 'is-invalid': f.submitted && startDate.invalid }" required  />
+                      <div *ngIf="f.submitted && startDate.invalid" class="invalid-feedback">
+                          <div *ngIf="startDate.errors.required">Product Start Date is required</div>
                       </div>
                   </div>
                   <div class="form-group">
-                    <label for="serviceenddate">Product End Date</label>
-                    <input type="date" class="form-control" name="enddate" [(ngModel)]="model.enddate" #enddate="ngModel" [ngClass]="{ 'is-invalid': f.submitted && enddate.invalid }" />
-                    <div *ngIf="f.submitted && enddate.invalid" class="invalid-feedback">
-                        <div *ngIf="enddate.errors.required">Product End Date is required</div>
-                        <div *ngIf="enddate.errors.number">Product End Date should be Date</div>
+                    <label for="endDate">Product End Date</label>
+                    <input type="date" class="form-control" name="endDate" [(ngModel)]="model.endDate" #endDate="ngModel" [ngClass]="{ 'is-invalid': f.submitted && endDate.invalid }" required/>
+                    <div *ngIf="f.submitted && endDate.invalid" class="invalid-feedback">
+                        <div *ngIf="endDate.errors.required">Product End Date is required</div>  
                     </div>
                 </div>
                 <div class="form-group">
-                  <label for="serviceimageurl">Product Image Url</label>
-                  <input type="text" class="form-control" name="imageurl" [(ngModel)]="model.imageurl" #imageurl="ngModel" [ngClass]="{ 'is-invalid': f.submitted && imageurl.invalid }" />
-                  <div *ngIf="f.submitted && imageurl.invalid" class="invalid-feedback">
-                      <div *ngIf="imageurl.errors.required">Product Image Url is required</div>
+                  <label for="imageUrl">Product Image Url</label>
+                  <input type="text" class="form-control" name="imageUrl" [(ngModel)]="model.imageUrl" #imageUrl="ngModel" [ngClass]="{ 'is-invalid': f.submitted && imageUrl.invalid }" required />
+                  <div *ngIf="f.submitted && imageUrl.invalid" class="invalid-feedback">
+                      <div *ngIf="imageUrl.errors.required">Product Image Url is required</div>
                       
                   </div>
               </div>
 
               <div class="form-group">
-                  <label for="baseprice">Base Price</label>
-                  <input type="number" class="form-control" name="baseprice" [(ngModel)]="model.baseprice" #baseprice="ngModel" [ngClass]="{ 'is-invalid': f.submitted && baseprice.invalid }" />
-                  <div *ngIf="f.submitted && baseprice.invalid" class="invalid-feedback">
-                      <div *ngIf="baseprice.errors.required">Base Price is required</div>
-                      <div *ngIf="baseprice.errors.number">Base Price should be Number</div>
+                  <label for="basePrice">Base Price</label>
+
+                  <input type="number" class="form-control" name="basePrice" [(ngModel)]="model.basePrice" #basePrice="ngModel" [ngClass]="{ 'is-invalid': f.submitted && basePrice.invalid }" />
+
+                  <div *ngIf="f.submitted && basePrice.invalid" class="invalid-feedback">
+                      <div *ngIf="basePrice.errors.required">Base Price is required</div>
+                      
                   </div>
               </div>
 
                 <div class="form-group">
-                  <label for="isactive">Product IS ACTIVE</label>
-                  <input type="checkbox" class="form-control" name="isactive" 
-                  [(ngModel)]="model.isactive" #isactive="ngModel"  />
+                  <label for="active">Product IS ACTIVE</label>
+                  <input type="checkbox" class="form-control" name="active" 
+                  [(ngModel)]="model.active" #active="ngModel" required />
                   
               </div>
                   <div class="form-group">
-                      <button class="btn btn-primary" [disabled]="!f.form.valid">ADD PRODUCT</button>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <button class="btn btn-primary" (click)="goBack()">Cancel</button>
+                      <button class="btn btn-info">ADD PRODUCT</button>
                   </div>
               </form>
-          </div>
+            </div>
       </div>
   </div>
 </div>

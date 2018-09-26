@@ -12,6 +12,8 @@ export class VendorAddress {
     public sublocalitylevel1?: string,
     public sublocalitylevel2?: string,
     public lat?:string,
-    public lng?:string
+    public lng?:string,
+    public primaryaddress?:string,
+    public addressname?:string
   ) {}
 }

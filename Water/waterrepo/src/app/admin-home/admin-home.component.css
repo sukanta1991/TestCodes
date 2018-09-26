@@ -1,0 +1,6 @@
+.navbar-nav li:hover
+{
+ 
+   transform: scale(1.2);
+   
+}

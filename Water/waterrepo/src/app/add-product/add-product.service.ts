@@ -16,9 +16,12 @@ import { product } from '../product';
 
     postProductList(model:product):Observable<any>
     {
+       // let headers = new Headers({ 'Content-Type': 'application/json' });
+       // headers.append("Accept", "application/json");
+       // let options = new RequestOptions({ headers: headers });
         let body = (model);
         console.log(JSON.stringify(body)+"Body hitted");
-        return this.http.post(this.baseApiUri, body)
+        return this.http.post(this.baseApiUri, body);
     }
 
   }

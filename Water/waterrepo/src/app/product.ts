@@ -4,10 +4,10 @@ export class product
  public productname?:string;
  public description?:string;
  public isactive?:boolean;
- public startdate:number;
- public enddate:number;
+ public startdate:Date;
+ public enddate:Date;
  public imageurl:string;
- public baseprice:number
+ public basePrice:number;
  public serviceId?: number
 
 

@@ -4,7 +4,6 @@ import {getservice} from '../get-all-service/getservice.service'
 import { product } from '../product';
 import {add_product} from './add-product.service';
 import { Router } from '@angular/router';
-import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-add-product',
@@ -22,7 +21,7 @@ export class AddProductComponent implements OnInit {
 
    value=0;
   constructor(private _addproduct:add_product,
-    private _getservice:getservice,private _router:Router, private _location: Location  ) { }
+    private _getservice:getservice,private _router:Router  ) { }
 
   ngOnInit() {
     this.getServiceList();
@@ -48,7 +47,6 @@ onSubmit()
 {
   this.model1=this.model;
   this.model1.serviceId=this.serviceId;
-  this.model1.imageurl = null;
   this._addproduct.postProductList(this.model1).subscribe(
     successResponse => {
       alert('Product Created Successfully');
@@ -58,13 +56,8 @@ onSubmit()
       alert('There was an Error while creating product');
       this.errorMessage = errorResponse.statusText;
       this.errorMessageBody = errorResponse._body;
-      console.log(this.errorMessage);
-      console.log(this.errorMessageBody);
     }
-  );
+  ); 
 }
-  goBack(){
-    this._location.back();
-  }
 
 }
