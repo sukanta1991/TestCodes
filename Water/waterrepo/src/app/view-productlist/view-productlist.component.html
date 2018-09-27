@@ -30,13 +30,27 @@ type = "ball-atom"
 <tbody>
 <tr *ngFor="let product of productView">
     <td>{{product.id}}</td>
-    <td>{{product.productname}}</td>
-    <td>{{product.description}}</td>
-    <td>{{product.isactive}}</td>
-    <td>{{product.startdates}}</td>
-    <td>{{product.enddates}}</td>
-    <td>{{product.imageurl}}</td>
-    <td>{{product.baseprice}}</td>
+    <td> <span *ngIf="product.id!=pId">{{product.productname}}</span>
+      <input type="text" *ngIf="product.id==pId" [(ngModel)] ="pModel.productname"/>
+    </td>
+    <td> <span *ngIf="product.id!=pId">{{product.description}}</span>
+      <input type="text" *ngIf="product.id==pId" [(ngModel)] ="pModel.description"/>
+    </td>
+    <td> <span *ngIf="product.id!=pId">{{product.isactive}}</span>
+      <input type="text" *ngIf="product.id==pId" [(ngModel)] ="pModel.isactive"/>
+    </td>
+    <td> <span *ngIf="product.id!=pId">{{product.startdates}}</span>
+      <input type="text" *ngIf="product.id==pId" [(ngModel)] ="pModel.startdates"/>
+    </td>
+    <td> <span *ngIf="product.id!=pId">{{product.enddates}}</span>
+      <input type="text" *ngIf="product.id==pId" [(ngModel)] ="pModel.enddates"/>
+    </td>
+    <td> <span *ngIf="product.id!=pId">{{product.imageurl}}</span>
+      <input type="text" *ngIf="product.id==pId" [(ngModel)] ="pModel.imageurl"/>
+    </td>
+    <td> <span *ngIf="product.id!=pId">{{product.baseprice}}</span>
+      <input type="text" *ngIf="product.id==pId" [(ngModel)] ="pModel.baseprice"/>
+    </td>
     <td>
         <div class="btn-group">
             <button type="button" *ngIf="product.id!=pId" class="btn btn-success" (click)="pId=product.id; pModel=product">Edit</button>   

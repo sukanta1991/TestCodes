@@ -42,9 +42,12 @@ export class getservice
     }
 
     updateService( model: newservice): Observable<any> {
+       model['servicestartdate'] = Math.round((new Date(model['servicestartdate'])).getTime() / 1000);
+       model['serviceenddate'] = Math.round((new Date(model['serviceenddate'])).getTime() / 1000);
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
         let body = JSON.stringify(model);
+       // console.log(body);
         return this.http.put(this.baseApiUri + '/update', body, options)
             .pipe(map((response: Response) => response.status == 200 ? 1 : response.status),
             catchError(this.handleError));
